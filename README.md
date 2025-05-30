@@ -1,2 +1,2 @@
 # nightdrive
-API for tracking your nightly drives. 
+API and WebApp for tracking your night (or daytime) drives. 
