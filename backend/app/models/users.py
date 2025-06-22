@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime
 
 from pydantic import EmailStr
 from sqlmodel import Field, Relationship, SQLModel
@@ -6,17 +7,25 @@ from app.core.config import settings
 
 # shared properties
 class UserBase(SQLModel):
-    email: EmailStr = Field(unique=True, max_length=255)
-    
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     user_name: str = Field(unique=True, max_length=255)
-    is_active: bool = True
-    is_admin: bool = False
+    name: str = Field(max_length=255)
 
 # properties to be received by API on user creation
 class UserCreate(UserBase):
+    email: EmailStr = Field(unique=True, max_length=255)
     password: str = Field(min_length=settings.PASSWORD_MIN_LENGTH, max_length=40)
 
-# Databse model
+# databse model
 class User(UserBase, table=True):
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
-    hashed_password: str
+    email: EmailStr = Field(unique=True, max_length=255)
+    email_verified: bool
+    hashed_password: str = Field()
+    last_password_change: datetime = Field()
+    is_suspended: bool = False
+    is_admin: bool = False
+
+# full user profile
+class UserProfile(UserBase):
+    distance_driven: int
+    time_driven: int

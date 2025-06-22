@@ -32,7 +32,10 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRATION_MINUTES: int = 60*24*8
 
     PASSWORD_MIN_LENGTH: int = 8
-    
+
+    '''
+    PostgreSQL database settings
+    '''    
     POSTGRES_SERVER: str
     POSTGRES_PORT: int = 5432
     POSTGRES_USER: str
@@ -50,5 +53,30 @@ class Settings(BaseSettings):
             port=self.POSTGRES_PORT,
             path=self.POSTGRES_DB
         )
+
+    '''
+    E-Mail settings
+    '''    
+    REQUIRE_EMAIL_VERIFICATION: bool = False
+
+    SMTP_TLS: bool = True
+    SMTP_SSL: bool = False
+    SMTP_PORT: int = 587
+    SMTP_HOST: str | None = None
+    SMTP_USER: str | None = None
+    SMTP_PASSWORD: str | None = None
+    EMAIL_FROM_EMAIL: EmailStr | None = None
+    EMAIL_FROM_NAME: EmailStr | None = None
+
+    @computed_field
+    @property
+    def EMAIL_CONFIGURED(self) -> bool:
+        return bool(self.SMTP_HOST and self.EMAIL_FROM_EMAIL)
+    
+    '''
+    Live group settings
+    '''
+    # 
+    LIVE_GROUP_MAX_DURATION: int = 24*60
 
 settings = Settings()
