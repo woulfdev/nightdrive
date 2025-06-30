@@ -14,7 +14,7 @@ async def register_user(
     signup_code: Annotated[int, Path(gt=100000, le=999999)]
 ):
     """
-    Create a new user without the need to be logged in. Requires a signup code.
+    Sign up using a sign up code.
     """
     return signup_code
 
@@ -23,8 +23,14 @@ async def register_user(
 async def get_user_profile(
     user_id: uuid.UUID
 ):
+    """
+    Get a users profile.
+    """
     return
 
 @router.post("/profile/update")
 async def update_profile():
+    """
+    Update profile
+    """
     return
