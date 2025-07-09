@@ -28,8 +28,11 @@ class Settings(BaseSettings):
 
     SECRET_KEY: str
 
-    # 8 days
+    # in days (default: 8)
     ACCESS_TOKEN_EXPIRATION_MINUTES: int = 60*24*8
+
+    # in hours (default: 24)
+    SIGNUP_CODE_LIFETIME: int = 24
 
     PASSWORD_MIN_LENGTH: int = 8
 
