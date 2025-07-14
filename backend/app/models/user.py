@@ -1,6 +1,7 @@
 import uuid
 import datetime
 
+from typing import Literal
 from pydantic import EmailStr
 from sqlmodel import Field, Relationship, SQLModel
 from app.core.config import settings
@@ -58,8 +59,12 @@ class SignupResponse(SignupBase):
 Settings
 """
 
+# Generic
+class SettingsGeneric(SQLModel):
+    color_theme: Literal["light", "dark", "system"] = Field(default="system")
+
 # Privacy
-class SettingsPrivacy(SQLModel, table=True):
+class SettingsPrivacy(SQLModel):
     user_id: uuid.UUID = Field(primary_key=True, unique=True, foreign_key="user.id")
     profile_public: bool = Field(default=True)
     drives_default_public: bool = Field(default=False)

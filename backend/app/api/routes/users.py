@@ -81,6 +81,23 @@ async def delete_user(
     """
     return
 
+@router.get("/settings/generic", response_model=SettingsGeneric)
+async def get_generic_settings():
+    """
+    Get generic settings
+    """
+    return
+
+@router.patch("/settings/generic")
+async def update_generic_settings(
+    session: SessionDep,
+    current_user: CurrentUser
+):
+    """
+    Update generic settings
+    """
+    return
+
 @router.get("/settings/privacy", response_model=SettingsPrivacy)
 async def get_privacy_settings(
     session: SessionDep,

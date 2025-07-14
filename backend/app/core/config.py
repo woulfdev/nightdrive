@@ -22,6 +22,12 @@ class Settings(BaseSettings):
         extra="ignore"
     )
 
+    ENVIRONMENT: Literal["dev", "prod"] = "prod"
+
+    LOCALES: str = "en"
+    def LOCALES_AVAILABLE(self) -> list:
+        return self.LOCALES.split(",")
+
     PROJECT_NAME: str = "NightDrive"
 
     API_V1_STR: str = "/api/v1"
@@ -83,3 +89,4 @@ class Settings(BaseSettings):
     LIVE_GROUP_MAX_DURATION: int = 24*60
 
 settings = Settings()
+""" API configuration values. """

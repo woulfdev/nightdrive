@@ -11,10 +11,18 @@ app = FastAPI(
     version="0.0.0"
 )
 
+# If the environemt variable ENVIRONMENT is set to "dev" load development route.
+if settings.ENVIRONMENT == "dev":
+    from app.api.routes import dev
+    app.include_router(
+        dev.router,
+        prefix=settings.API_V1_STR
+    )
+
 app.include_router(
     api_router,
     prefix=settings.API_V1_STR
-    )
+)
 
 @app.get("/", response_model=Message)
 async def root():

@@ -12,8 +12,12 @@ def get_db() -> Generator[Session, None, None]:
         yield session
 
 SessionDep = Annotated[Session, Depends(get_db)]
+""" Used to get a database session. """
 
-def get_current_user(session: SessionDep) -> User:
+def get_current_user(session: SessionDep, token) -> User:
+    """ Gets the user from a JWT. """
+    # TODO: implement
     return
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
+""" Get the request sending user. """
