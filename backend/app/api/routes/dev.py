@@ -6,9 +6,13 @@ from fastapi import APIRouter, Depends, HTTPException, Path
 from app.api.deps import SessionDep, CurrentUser
 from app.models.generic import *
 
-router = APIRouter(prefix="/dev", tags=["Development"])
+dev_router = APIRouter(prefix="/dev", tags=["Development"])
+"""
+Route that contains endpoints used for testing and development.\n
+MAKE SURE THIS IS ALWAYS DISABLED ON PRODUCTION SERVERS!
+"""
 
-@router.get("", response_model=Message)
+@dev_router.get("", response_model=Message)
 async def dev_mode_status():
     """
     Allows for easily checking if server is configured for development.

@@ -1,18 +1,16 @@
 import uuid
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Path
+from fastapi import APIRouter, Depends, HTTPException, Path, UploadFile
 
-from app.api.routes import super
+from app.api.routes import super, usersettings
 
 from app.api.deps import SessionDep, CurrentUser
 from app.models.user import *
 
 router = APIRouter(prefix="/users", tags=["Users"])
-
-router.include_router(
-    super.sub_router
-)
+router.include_router(super.sub_router)
+router.include_router(usersettings.sub_router)
 
 @router.get("/signup/code", response_model=SignupResponse)
 async def get_signup_code(
@@ -39,6 +37,21 @@ async def register_user(
     """
     Register using a sign up code.
     """
+    return
+
+@router.post("/signup")
+async def register_user_no_code():
+    """
+    Register without a signup code.
+    """
+    if usersettings.REQUIRE_SIGNUP_CODE:
+        raise HTTPException(
+            status_code=401,
+            detail="Signup without a signup code is not permited on this server."
+        )
+    
+    # TODO: 
+
     return
 
 @router.get("/profile/me", response_model=UserPrivate)
@@ -71,50 +84,36 @@ async def update_profile(
     """
     return
 
-@router.delete("/delete/{user_id}")
-async def delete_user(
-        session: SessionDep,
-        user_id: uuid.UUID
-):
-    """
-    Delete a user, administrator only
-    """
-    return
-
-@router.get("/settings/generic", response_model=SettingsGeneric)
-async def get_generic_settings():
-    """
-    Get generic settings
-    """
-    return
-
-@router.patch("/settings/generic")
-async def update_generic_settings(
-    session: SessionDep,
-    current_user: CurrentUser
-):
-    """
-    Update generic settings
-    """
-    return
-
-@router.get("/settings/privacy", response_model=SettingsPrivacy)
-async def get_privacy_settings(
-    session: SessionDep,
-    current_user: CurrentUser
-):
-    """
-    Get your users privacy settings.
-    """
-    return
-
-@router.patch("/settings/privacy")
-async def update_privacy_settings(
+@router.post("/profile/picture")
+async def upload_profile_picture(
     session: SessionDep,
     current_user: CurrentUser,
-    privacy_settings: SettingsPrivacyUpdate
+    file: UploadFile
 ):
     """
-    Update your users privacy settings.
+    Upload a new profile picture.
     """
+    # TODO
+    return
+
+@router.delete("/profile/picture")
+async def delete_profile_picture(
+    session: SessionDep,
+    current_user: CurrentUser
+):
+    """
+    Delete your profile picture.
+    """
+    # TODO
+    return
+
+@router.delete("/profile/delete")
+async def delete_user(
+        session: SessionDep,
+        current_user: CurrentUser
+):
+    """
+    Delete your user.
+    """
+    # TODO
     return

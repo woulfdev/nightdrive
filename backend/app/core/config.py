@@ -38,13 +38,17 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRATION_MINUTES: int = 60*24*8
 
     # in hours (default: 24)
+    REQUIRE_SIGNUP_CODE: bool = True
     SIGNUP_CODE_LIFETIME: int = 24
+    """Hours a signup code is valid for."""
 
+    ### Password settings
     PASSWORD_MIN_LENGTH: int = 8
+    PASSWORD_REQUIRE_NUMBERS: bool = True
+    PASSWORD_REQUIRE_UPER_LOWERCASE: bool = True
+    PASSWORD_REQUIRE_SYMBOLS: bool = True
 
-    '''
-    PostgreSQL database settings
-    '''    
+    ### PostgreSQL database settings    
     POSTGRES_SERVER: str
     POSTGRES_PORT: int = 5432
     POSTGRES_USER: str
@@ -63,9 +67,8 @@ class Settings(BaseSettings):
             path=self.POSTGRES_DB
         )
 
-    '''
-    E-Mail settings
-    '''    
+
+    ### E-Mail settings  
     REQUIRE_EMAIL_VERIFICATION: bool = False
 
     SMTP_TLS: bool = True
@@ -82,11 +85,10 @@ class Settings(BaseSettings):
     def EMAIL_CONFIGURED(self) -> bool:
         return bool(self.SMTP_HOST and self.EMAIL_FROM_EMAIL)
     
-    '''
-    Live group settings
-    '''
-    # 
+
+    ### Live group settings
     LIVE_GROUP_MAX_DURATION: int = 24*60
+    """Maximum duartion of a life group in Minutes."""
 
 settings = Settings()
-""" API configuration values. """
+""" NightDrive API configuration values. """

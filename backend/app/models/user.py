@@ -50,7 +50,7 @@ class SignupBase(SQLModel):
     used: bool = Field(default=False)
 
 class Signup(SignupBase, table=True):
-    None
+    valid_for_id: uuid.UUID = Field(default=None)
 
 class SignupResponse(SignupBase):
     lifetime: int = settings.SIGNUP_CODE_LIFETIME
@@ -74,3 +74,11 @@ class SettingsPrivacyUpdate(SQLModel):
     profile_public: bool | None = None
     drives_default_public: bool | None = None
     friend_list_public: bool | None = None
+
+class SettingsSecurityPwdReset(SQLModel):
+    reset_code: str = Field(min_length=8, max_length=12)
+    password: str = Field(min_length=settings.PASSWORD_MIN_LENGTH, max_length=40)
+
+class SettingsSecurityPwdUpdate(SQLModel):
+    current_password: str = Field(min_length=settings.PASSWORD_MIN_LENGTH, max_length=40)
+    new_password: str = Field(min_length=settings.PASSWORD_MIN_LENGTH, max_length=40)

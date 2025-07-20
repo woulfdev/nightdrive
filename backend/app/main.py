@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.routing import APIRoute
 
-from app.api.main import api_router
+from app.api.router import api_router
 from app.core.config import settings
-from app.models.generic import Message
+from app.models.generic import *
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -15,7 +15,7 @@ app = FastAPI(
 if settings.ENVIRONMENT == "dev":
     from app.api.routes import dev
     app.include_router(
-        dev.router,
+        dev.dev_router,
         prefix=settings.API_V1_STR
     )
 
@@ -30,3 +30,13 @@ async def root():
         status_code=418,
         detail="I'm a teapot"
     )
+
+@app.get("/info", response_model=APIInfo)
+async def info():
+    """
+    Get basic API info.
+    """
+    message = APIInfo(
+        version = app.version
+    )
+    return message
