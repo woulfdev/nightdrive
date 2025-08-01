@@ -1,4 +1,8 @@
 site_name: NightDrive
+site_url: https://woulfdev.github.io/nightdrive/
+site_author: Elia
+site_description: >-
+  Documentation about NightDrive API and Mobile App.
 
 repo_name: NightDrive
 repo_url: https://github.com/woulfdev/nightdrive
@@ -17,6 +21,9 @@ plugins:
   - git-authors
 
 markdown_extensions: 
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - tables
   - footnotes
   - attr_list
@@ -35,6 +42,7 @@ theme:
     - navigation.instant
     - navigation.tabs
     - navigation.path
+    - navigation.footer
     - search.suggest
     - content.tooltips
   icon: 
@@ -44,7 +52,7 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue grey
+      primary: deep purple
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
@@ -52,7 +60,7 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue grey
+      primary: deep purple
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -64,3 +72,4 @@ nav:
   - Deployment: 
     - deploy.md
     - Variables: env-variables.md
+  - App: app/index.md
