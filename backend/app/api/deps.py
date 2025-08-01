@@ -1,7 +1,7 @@
 from collections.abc import Generator
 from typing import Annotated
 
-from fastapi import Depends
+from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session
 
@@ -23,7 +23,22 @@ SessionDep = Annotated[Session, Depends(get_db)]
 TokenDep = Annotated[str, Depends(reusable_oauth2)]
 
 def get_current_user(session: SessionDep, token) -> User:
-    """ Gets the user from a JWT. """
+    """ 
+    Gets the user from a JWT. 
+
+    Also used for verifying if a valid token is used.
+
+    :return: current user
+    :rtype: User
+    :raises:
+        Raises a 403 HTTP Exception if token not valid or hashed_password = Null.
+    """
+    user = User()
+    if user.hashed_password == None:
+        raise HTTPException(
+            status_code=403,
+            detail="Password reset required."
+        )
     # TODO: implement
     return
 

@@ -13,4 +13,6 @@ sqlmodel==0.0.24
 pyjwt[crypto]==2.10.1
 passlib[bcrypt]==1.7.4
 
+geopy==2.4.1
+
 pydantic_settings==2.9.1

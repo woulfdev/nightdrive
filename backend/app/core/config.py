@@ -30,12 +30,13 @@ class Settings(BaseSettings):
 
     PROJECT_NAME: str = "NightDrive"
 
+    BASE_URL: str = ""
     API_V1_STR: str = "/api/v1"
 
     SECRET_KEY: str
 
     # in days (default: 8)
-    ACCESS_TOKEN_EXPIRATION_MINUTES: int = 60*24*8
+    ACCESS_TOKEN_EXPIRATION_HOURS: int = 24*8
 
     # in hours (default: 24)
     REQUIRE_SIGNUP_CODE: bool = True

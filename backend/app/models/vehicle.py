@@ -19,6 +19,7 @@ class Vehicle(VehicleBase, Table=True):
     public_visible: bool = Field(default=True)
     public_usable: bool = Field(default=False)
     creation_date: datetime.datetime = Field()
+    license_plate: str = Field()
 
 class VehicleCreate(VehicleBase):
     public_visible: bool | None = Field(default=True)
@@ -29,7 +30,7 @@ class VehiclePublic(VehicleBase):
 
 
 class VehiclePrivate(Vehicle):
-    user_id: uuid.UUID = Field()
+    None
 
 
 class VehicleUpdate(VehicleBase):

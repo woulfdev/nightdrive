@@ -1,0 +1,16 @@
+{
+    "gpx": {
+        "special": [
+            {
+                "tracker_name": "Geo Tracker",
+                "extension": "geotracker:meta",
+                "data": {
+                    "speed": "c"
+                }
+            }
+        ]
+    },
+    "kml": {
+
+    }
+}

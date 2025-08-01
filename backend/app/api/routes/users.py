@@ -25,7 +25,7 @@ async def get_signup_code(
             status_code=403,
             detail="The user doesn't have enough privileges."
         )
-    
+    # TODO
     return
 
 @router.post("/signup/{signup_code}")
@@ -37,6 +37,7 @@ async def register_user(
     """
     Register using a sign up code.
     """
+    # TODO
     return
 
 @router.post("/signup")
@@ -51,7 +52,6 @@ async def register_user_no_code():
         )
     
     # TODO: 
-
     return
 
 @router.get("/profile/me", response_model=UserPrivate)
@@ -62,6 +62,7 @@ async def get_my_profile(
     """
     Get your own profile
     """
+    # TODO
     return
 
 @router.get("/profile/{user_id}", response_model=UserPublic)
@@ -73,6 +74,7 @@ async def get_user_profile(
     """
     Get a users profile.
     """
+    # TODO
     return
 
 @router.patch("/profile/update")
@@ -82,6 +84,7 @@ async def update_profile(
     """
     Update profile
     """
+    # TODO
     return
 
 @router.post("/profile/picture")

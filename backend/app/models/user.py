@@ -9,7 +9,7 @@ from app.core.config import settings
 # shared properties
 class UserBase(SQLModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
-    user_name: str = Field(unique=True, max_length=255)
+    username: str = Field(unique=True, max_length=255)
     name: str = Field(max_length=255)
 
 # properties to be received by API on user creation
@@ -76,6 +76,8 @@ class SettingsPrivacyUpdate(SQLModel):
     friend_list_public: bool | None = None
 
 class SettingsSecurityPwdReset(SQLModel):
+    username: str | None = Field(max_length=255)
+    email: EmailStr | None = Field(max_length=255)
     reset_code: str = Field(min_length=8, max_length=12)
     password: str = Field(min_length=settings.PASSWORD_MIN_LENGTH, max_length=40)
 

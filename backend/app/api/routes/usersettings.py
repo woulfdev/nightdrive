@@ -79,7 +79,6 @@ async def start_password_reset(
 @sub_router.patch("/security/password/reset")
 async def reset_password(
     session: SessionDep,
-    current_user: CurrentUser,
     data: SettingsSecurityPwdReset
 ):
     """

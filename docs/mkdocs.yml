@@ -1,0 +1,58 @@
+site_name: NightDrive
+
+repo_name: NightDrive
+repo_url: https://github.com/woulfdev/nightdrive
+
+edit_uri: edit/main/docs/
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/woulfdev    
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enabled_creation_date: true
+  - git-authors
+
+markdown_extensions: 
+  - tables
+  - footnotes
+
+theme:
+  langauge: en
+  name: material
+  features:
+    - content.action.view
+    - header.autohide
+    - navigation.instant
+    - navigation.tabs
+    - navigation.path
+    - search.suggest
+  icon: 
+    repo: fontawesome/brands/github
+  palette: 
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Features:
+    - Drives: drives.md
+  - Deployment: 
+    - deploy.md
+    - Variables: env-variables.md

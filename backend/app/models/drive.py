@@ -23,13 +23,13 @@ class DriveBase(SQLModel):
     creation: datetime.datetime = Field()
 
 class Drive(DriveBase, table=True):
-    None
+    None # type: ignore
 
 class DrivePublic(SQLModel):
-    None
+    None # type: ignore
 
 class DrivePrivate(DriveBase):
-    None
+    None  # type: ignore
 
 class DriveListPrivate(SQLModel):
     drives: list[DrivePrivate]
@@ -55,7 +55,24 @@ class TrackPointBase(SQLModel):
     speed: float = Field()
 
 class TrackPoint(TrackPointBase, table=True):
-    None
+    None # type: ignore
 
 class Track(SQLModel):
     points: list[TrackPointBase] = Field()
+
+### Drive Markers
+class MarkerBase(SQLModel):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    name: str = Field(max_length=255)
+    description: str = Field()
+    latitude: Decimal = Field(nullable=False, max_digits=8, decimal_places=6)
+    longitude: Decimal = Field(nullable=False, max_digits=9, decimal_places=6)
+
+class Marker(MarkerBase, table=True):
+    None # type: ignore
+
+class MarkerUpdate(SQLModel):
+    name: str | None = None
+    description: str | None = None
+    latitude: Decimal | None = Field(nullable=False, max_digits=8, decimal_places=6)
+    longitude: Decimal | None = Field(nullable=False, max_digits=9, decimal_places=6)
