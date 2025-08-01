@@ -70,7 +70,7 @@ class Settings(BaseSettings):
 
 
     ### E-Mail settings  
-    REQUIRE_EMAIL_VERIFICATION: bool = False
+    EMAIL_REQUIRE_VERIFICATION: bool = False
 
     SMTP_TLS: bool = True
     SMTP_SSL: bool = False

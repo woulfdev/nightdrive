@@ -3,7 +3,7 @@ site_name: NightDrive
 repo_name: NightDrive
 repo_url: https://github.com/woulfdev/nightdrive
 
-edit_uri: edit/main/docs/
+edit_uri: edit/main/docs/docs
 
 extra:
   social:
@@ -13,12 +13,18 @@ extra:
 plugins:
   - search
   - git-revision-date-localized:
-      enabled_creation_date: true
+      enable_creation_date: true
   - git-authors
 
 markdown_extensions: 
   - tables
   - footnotes
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   langauge: en
@@ -30,8 +36,10 @@ theme:
     - navigation.tabs
     - navigation.path
     - search.suggest
+    - content.tooltips
   icon: 
     repo: fontawesome/brands/github
+    annotation: material/circle-medium
   palette: 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
