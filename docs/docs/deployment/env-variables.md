@@ -2,13 +2,13 @@
 
 ### Gerneral
 
-| Variable                                                          | Default | Description                                              |
-| :---------------------------------------------------------------- | :-----: | :------------------------------------------------------- |
-| BASE_URL :fontawesome-solid-exclamation-circle:{title="required"} |         |                                                          |
-| REQUIRE_SIGNUP_CODE                                               |  true   | Allow use sigup without token                            |
-| SIGNUP_CODE_LIFETIME                                              |   24    | The time in hours a signup code is usbale                |
-| EMAIL_REQUIRE_VERIFICATION                                        |  false  | Require users to click a varification link in an E-Mail. |
-| ENVIRONMENT                                                       |  prod   |                                                          |
+| Variable                                                          | Default | Description                                             |
+| :---------------------------------------------------------------- | :-----: | :------------------------------------------------------ |
+| BASE_URL :fontawesome-solid-exclamation-circle:{title="required"} |         |                                                         |
+| REQUIRE_SIGNUP_CODE                                               |  true   | Allow use sigup without token                           |
+| SIGNUP_CODE_LIFETIME                                              |   24    | The time in hours a signup code is usable               |
+| EMAIL_REQUIRE_VERIFICATION                                        |  false  | Require users to click a varification link in an E-Mail |
+| ENVIRONMENT                                                       |  prod   |                                                         |
 
 ### Security
 
@@ -18,6 +18,8 @@
 | SECRET_KEY :fontawesome-solid-exclamation-circle:{title="required"} |         |                                    |
 
 ### Database
+
+PostgreSQL server connection.
 
 | Variable                                                                   |  Default   | Description |
 | :------------------------------------------------------------------------- | :--------: | :---------- |
