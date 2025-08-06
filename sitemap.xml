@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://woulfdev.github.io/nightdrive/</loc>
-         <lastmod>2025-08-01</lastmod>
+         <loc>https://nightdrive.dev/</loc>
+         <lastmod>2025-08-06</lastmod>
     </url>
     <url>
-         <loc>https://woulfdev.github.io/nightdrive/about/</loc>
-         <lastmod>2025-08-01</lastmod>
+         <loc>https://nightdrive.dev/drives/</loc>
+         <lastmod>2025-08-06</lastmod>
     </url>
     <url>
-         <loc>https://woulfdev.github.io/nightdrive/deploy/</loc>
-         <lastmod>2025-08-01</lastmod>
+         <loc>https://nightdrive.dev/api/</loc>
+         <lastmod>2025-08-06</lastmod>
     </url>
     <url>
-         <loc>https://woulfdev.github.io/nightdrive/drives/</loc>
-         <lastmod>2025-08-01</lastmod>
+         <loc>https://nightdrive.dev/app/</loc>
+         <lastmod>2025-08-06</lastmod>
     </url>
     <url>
-         <loc>https://woulfdev.github.io/nightdrive/env-variables/</loc>
-         <lastmod>2025-08-01</lastmod>
+         <loc>https://nightdrive.dev/deployment/</loc>
+         <lastmod>2025-08-06</lastmod>
     </url>
     <url>
-         <loc>https://woulfdev.github.io/nightdrive/app/</loc>
-         <lastmod>2025-08-01</lastmod>
+         <loc>https://nightdrive.dev/deployment/env-variables/</loc>
+         <lastmod>2025-08-06</lastmod>
     </url>
 </urlset>
