@@ -40,3 +40,13 @@ async def info():
         version = app.version
     )
     return message
+
+@app.get("/motd", response_model=Message)
+async def message_of_the_day():
+    """
+    Get the Message of the Day / Disclaimer
+    """
+    message = Message(
+        message=settings.MESSAGE_OF_THE_DAY
+    )
+    return message

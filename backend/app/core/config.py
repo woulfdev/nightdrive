@@ -30,8 +30,12 @@ class Settings(BaseSettings):
 
     PROJECT_NAME: str = "NightDrive"
 
+    MESSAGE_OF_THE_DAY: str = None
+
     BASE_URL: str = ""
     API_V1_STR: str = "/api/v1"
+
+    TIME_ZONE: str = "Etc/UTC"
 
     SECRET_KEY: str
 
@@ -44,17 +48,18 @@ class Settings(BaseSettings):
     """Hours a signup code is valid for."""
 
     ### Password settings
-    PASSWORD_MIN_LENGTH: int = 8
+    PASSWORD_MIN_LENGTH: int = 12
     PASSWORD_REQUIRE_NUMBERS: bool = True
     PASSWORD_REQUIRE_UPER_LOWERCASE: bool = True
     PASSWORD_REQUIRE_SYMBOLS: bool = True
+    PASSWORD_SYMBOLS_LIST: str = "~!@#$%^&*()_-+={[}]|\:;\"\'<,>.?/"
 
     ### PostgreSQL database settings    
     POSTGRES_SERVER: str
     POSTGRES_PORT: int = 5432
-    POSTGRES_USER: str
-    POSTGRES_PASSWORD: str = ""
-    POSTGRES_DB: str = ""
+    POSTGRES_USER: str = "nightdrive"
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str = "nightdrive"
 
     @computed_field
     @property
@@ -72,7 +77,7 @@ class Settings(BaseSettings):
     ### E-Mail settings  
     EMAIL_REQUIRE_VERIFICATION: bool = False
 
-    SMTP_TLS: bool = True
+    SMTP_AUTH_TYPE: Literal["TLS", "SSL"] = "TLS"
     SMTP_SSL: bool = False
     SMTP_PORT: int = 587
     SMTP_HOST: str | None = None

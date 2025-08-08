@@ -9,9 +9,8 @@
 
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color: #20006b;
-  --md-primary-fg-color--dark: #9b25e5;
   --md-accent-fg-color: #9b25e5;
-  --md-accent-fg-color--dark: #9b25e5;
+  --md-primary-fg-color--dark: #303fa1;
   --md-custom-h2-color: rgb(167, 167, 167);
   --md-default-bg-color: #1a1b1b;
   --md-default-accent-bg-color: #1f1e1e;
@@ -19,10 +18,18 @@
 
 th {
     background-color: var(--md-primary-fg-color);
+    color: hsl(225deg 15% 90% / 82%);
 }
 
+/* footer license disclaimer styling */
 .nd-footer-license {
     text-align: center;
     font-size: .7rem;
     padding: .2rem;
+}
+
+a[target="_blank"]:not([class*="md-"]):after {
+  content: "↗";
+  vertical-align: top;
+  font-size: smaller;
 }

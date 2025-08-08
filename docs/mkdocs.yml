@@ -12,7 +12,7 @@ edit_uri: edit/main/docs/docs
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/woulfdev    
+      link: https://github.com/woulfdev
 
 extra_css:
   - stylesheets/extra.css
@@ -25,7 +25,7 @@ plugins:
   # - git-committers:
       # repository: woulfdev/nightdrive
       # branch: main
-  # - privacy
+  - privacy
 
 markdown_extensions: 
   - admonition
@@ -39,6 +39,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.critic
+  - pymdownx.caret
+  # - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 
 theme:
   langauge: en
@@ -74,12 +79,17 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+not_in_nav: 
+  license.md
+
 nav:
   - Home: index.md
   - Features:
-    - Drives: drives.md
+    - Drives: features/drives.md
   - Deployment: 
     - deployment/index.md
+    - Installation:
+      - deployment/instal/docker.md
     - Variables: deployment/env-variables.md
   - API Referece:
     - api/index.md
