@@ -942,45 +942,59 @@
 <thead>
 <tr>
 <th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Container</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">BASE_URL <span class="twemoji" title="required"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-376c13.3 0 24 10.7 24 24v112c0 13.3-10.7 24-24 24s-24-10.7-24-24V160c0-13.3 10.7-24 24-24m-26.7 216a26.7 26.7 0 1 1 53.3 0 26.7 26.7 0 1 1-53.3 0"/></svg></span></td>
+<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">REQUIRE_SIGNUP_CODE</td>
-<td style="text-align: center;">true</td>
 <td style="text-align: left;">Require users to provide a code to sign up</td>
+<td style="text-align: center;"><code>True</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">SIGNUP_CODE_LIFETIME</td>
-<td style="text-align: center;">24</td>
 <td style="text-align: left;">The time in hours a signup code is usable</td>
+<td style="text-align: center;"><code>24</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">EMAIL_REQUIRE_VERIFICATION</td>
-<td style="text-align: center;">false</td>
 <td style="text-align: left;">Require users to click a varification link in an E-Mail</td>
+<td style="text-align: center;"><code>False</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">ENVIRONMENT</td>
-<td style="text-align: center;">prod</td>
-<td style="text-align: left;">Operating environment either prod or dev</td>
+<td style="text-align: left;">Operating environment either <code>prod</code> or <code>dev</code></td>
+<td style="text-align: center;"><code>prod</code></td>
+<td style="text-align: left;">api</td>
+</tr>
+<tr>
+<td style="text-align: left;">LOGGING_LEVEL</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><code>INFO</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">MESSAGE_OF_THE_DAY</td>
-<td style="text-align: center;">None</td>
 <td style="text-align: left;">Message to be displayed on login or signup screen</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">TIME_ZONE</td>
-<td style="text-align: center;">Etc/UTC</td>
 <td style="text-align: left;">Time zone identifier from this <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List" target="_blank">list</a></td>
+<td style="text-align: center;"><code>Etc/UTC</code></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -989,20 +1003,23 @@
 <thead>
 <tr>
 <th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Container</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">ACCESS_TOKEN_EXPIRATION_HOURS</td>
-<td style="text-align: center;">192</td>
 <td style="text-align: left;">The time in hours a token is valid</td>
+<td style="text-align: center;"><code>192</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">SECRET_KEY <span class="twemoji" title="required"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-376c13.3 0 24 10.7 24 24v112c0 13.3-10.7 24-24 24s-24-10.7-24-24V160c0-13.3 10.7-24 24-24m-26.7 216a26.7 26.7 0 1 1 53.3 0 26.7 26.7 0 1 1-53.3 0"/></svg></span></td>
-<td style="text-align: center;"></td>
 <td style="text-align: left;">Used to generate JWT</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">api</td>
 </tr>
 </tbody>
 </table>
@@ -1012,30 +1029,35 @@
 <thead>
 <tr>
 <th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Container</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">PASSWORD_MIN_LENGTH</td>
-<td style="text-align: center;">12</td>
 <td style="text-align: left;">Minimum password length (can't be set <code>&lt;8</code>)</td>
+<td style="text-align: center;"><code>12</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">PASSWORD_REQUIRE_NUMBERS</td>
-<td style="text-align: center;">True</td>
 <td style="text-align: left;">Require passwords to include numbers <code>0-9</code></td>
+<td style="text-align: center;"><code>True</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">PASSWORD_REQUIRE_UPER_LOWERCASE</td>
-<td style="text-align: center;">True</td>
 <td style="text-align: left;">Require password to include upper and lowercase letters <code>a-z</code>, <code>A-Z</code></td>
+<td style="text-align: center;"><code>True</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 <tr>
 <td style="text-align: left;">PASSWORD_REQUIRE_SYMBOLS</td>
-<td style="text-align: center;">True</td>
 <td style="text-align: left;">Require password to include special characters <code>~!@#$%^&amp;*()_-+={[}]|\:;"'&lt;,&gt;.?/</code></td>
+<td style="text-align: center;"><code>True</code></td>
+<td style="text-align: left;">api</td>
 </tr>
 </tbody>
 </table>
@@ -1045,35 +1067,41 @@
 <thead>
 <tr>
 <th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Container</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">POSTGRES_SERVER <span class="twemoji" title="required"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-376c13.3 0 24 10.7 24 24v112c0 13.3-10.7 24-24 24s-24-10.7-24-24V160c0-13.3 10.7-24 24-24m-26.7 216a26.7 26.7 0 1 1 53.3 0 26.7 26.7 0 1 1-53.3 0"/></svg></span></td>
-<td style="text-align: center;"></td>
 <td style="text-align: left;">Postgres database server address</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">POSTGRES_PORT</td>
-<td style="text-align: center;">5432</td>
 <td style="text-align: left;">Postgres database port</td>
+<td style="text-align: center;"><code>5432</code></td>
+<td style="text-align: left;">db, api</td>
 </tr>
 <tr>
 <td style="text-align: left;">POSTGRES_USER</td>
-<td style="text-align: center;">nightdrive</td>
 <td style="text-align: left;">Postgres database user</td>
+<td style="text-align: center;"><code>nightdrive</code></td>
+<td style="text-align: left;">db, api</td>
 </tr>
 <tr>
 <td style="text-align: left;">POSTGRES_PASSWORD <span class="twemoji" title="required"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-376c13.3 0 24 10.7 24 24v112c0 13.3-10.7 24-24 24s-24-10.7-24-24V160c0-13.3 10.7-24 24-24m-26.7 216a26.7 26.7 0 1 1 53.3 0 26.7 26.7 0 1 1-53.3 0"/></svg></span></td>
-<td style="text-align: center;"></td>
 <td style="text-align: left;">Postgres database password</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">db, api</td>
 </tr>
 <tr>
 <td style="text-align: left;">POSTGRES_DB</td>
-<td style="text-align: center;">nightdrive</td>
 <td style="text-align: left;">Postgres database name</td>
+<td style="text-align: center;"><code>nightdrive</code></td>
+<td style="text-align: left;">db, api</td>
 </tr>
 </tbody>
 </table>
@@ -1083,44 +1111,52 @@
 <thead>
 <tr>
 <th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Container</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">SMTP_AUTH_TYPE</td>
-<td style="text-align: center;">TLS</td>
 <td style="text-align: left;">Options: <code>TLS</code> or <code>SSL</code></td>
+<td style="text-align: center;"><code>TLS</code></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SMTP_PORT</td>
-<td style="text-align: center;">587</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><code>587</code></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SMTP_HOST</td>
+<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SMTP_USER</td>
-<td style="text-align: center;">nightdrive</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><code>nightdrive</code></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SMTP_PASSWORD</td>
+<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SMTP_FROM_EMAIL</td>
+<td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SMTP_FROM_NAME</td>
-<td style="text-align: center;">NightDrive</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><code>NightDrive</code></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -1147,7 +1183,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 8, 2025 11:04:35 UTC">August 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 15, 2025 21:39:40 UTC">August 15, 2025</span>
   </span>
 
     
@@ -1238,7 +1274,7 @@
   
   <div class="md-footer-meta md-typeset">
     <div class="nd-footer-license">
-      This project is available under <a target="_blank" href="https://github.com/woulfdev/nightdrive/blob/f526933a0b24188ee3368e1c238af001402e301c/LICENSE">GNU AGPL v3</a> license.
+      This project is available under <a href="/license">GNU AGPL v3</a> license.
     </div>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">

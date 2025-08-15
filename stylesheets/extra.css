@@ -21,6 +21,18 @@ th {
     color: hsl(225deg 15% 90% / 82%);
 }
 
+.nf-404-text {
+  text-align: center;
+}
+
+.nf-404-fun {
+  display: none;
+}
+
+.md-main__inner {
+  max-width: 71rem;
+}
+
 /* footer license disclaimer styling */
 .nd-footer-license {
     text-align: center;
