@@ -4,11 +4,12 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Path, UploadFile, status
 
 from app.api.deps import SessionDep, CurrentUser
+from app.core.log import logger
 from app.models.drive import *
 
 router = APIRouter(prefix="/drives", tags=["Drives"])
 
-@router.get("/list", response_model=DriveListPrivate)
+@router.get("/list/my", response_model=DriveListPrivate)
 async def list_drives(
     session: SessionDep,
     current_user: CurrentUser
@@ -31,6 +32,29 @@ async def list_users_drives(
     # TODO
     return
 
+@router.get("/my/{drive_id}", response_model=DrivePrivate)
+async def get_my_drive(
+    session: SessionDep,
+    current_user: CurrentUser,
+    drive_id: uuid.UUID
+):
+    """
+    Get details about your own drive.
+    """
+    # TODO
+    return
+
+@router.get("/{drive_id}", response_model=DrivePrivate)
+async def get_drive(
+    session: SessionDep,
+    current_user: CurrentUser,
+    drive_id: uuid.UUID
+):
+    """
+    Get details about another users public drive.
+    """
+    # TODO
+    return
 
 @router.post("/create", status_code=status.HTTP_201_CREATED)
 async def create_empty_drive(
@@ -73,13 +97,24 @@ async def add_tracking_file(
     return
 
 @router.patch("/update")
-async def upate_info(
+async def upate_drive_info(
     session:SessionDep,
     current_user: CurrentUser,
     data: DriveUpdate
 ):
     """
     Update drive data like name and description.
+    """
+    # TODO
+    return
+
+@router.get("/track/{drive_id}", response_model=Track)
+async def get_drive_track(
+    session: SessionDep,
+    current_user: CurrentUser
+):
+    """
+    Get the full track from a drive.
     """
     # TODO
     return

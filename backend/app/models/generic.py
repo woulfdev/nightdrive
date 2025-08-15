@@ -10,3 +10,7 @@ class APIInfo(SQLModel):
     name: str = settings.PROJECT_NAME
     open_api: str = f"{settings.API_V1_STR}/openapi.json"
     motd: str = settings.MESSAGE_OF_THE_DAY
+
+class Token(SQLModel):
+    access_token: str
+    token_type: str = "bearer"

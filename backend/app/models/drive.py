@@ -18,17 +18,16 @@ class DriveBase(SQLModel):
     avg_speed: float = Field()
     avg_speed_moving: float = Field()
     time_moving: float = Field()
-    public: bool = Field(default=False)
-    friends_only: bool = Field(default=False)
     creation: datetime.datetime = Field()
 
 class Drive(DriveBase, table=True):
+    public: bool = Field(default=False)
+    friends_only: bool = Field(default=False)
+
+class DrivePublic(DriveBase):
     None # type: ignore
 
-class DrivePublic(SQLModel):
-    None # type: ignore
-
-class DrivePrivate(DriveBase):
+class DrivePrivate(Drive):
     None  # type: ignore
 
 class DriveListPrivate(SQLModel):

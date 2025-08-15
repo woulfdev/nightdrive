@@ -7,11 +7,12 @@ from sqlmodel import Session
 
 from app.core.db import engine
 from app.core.config import settings
+from app.core.log import logger
 from app.models.user import User
 
 reusable_oauth2 = OAuth2PasswordBearer(
-    # tokenUrl=f"{settings.API_V1_STR}/login/access-token"
-    tokenUrl="token"
+    tokenUrl=f"{settings.API_V1_STR}/auth/oauth"
+    # tokenUrl="token"
 )
 
 def get_db() -> Generator[Session, None, None]:
@@ -22,7 +23,7 @@ SessionDep = Annotated[Session, Depends(get_db)]
 """ Used to get a database session. """
 TokenDep = Annotated[str, Depends(reusable_oauth2)]
 
-def get_current_user(session: SessionDep, token) -> User:
+def get_current_user(session: SessionDep, token: TokenDep) -> User:
     """ 
     Gets the user from a JWT. 
 
@@ -33,7 +34,10 @@ def get_current_user(session: SessionDep, token) -> User:
     :raises:
         Raises a 403 HTTP Exception if token not valid or hashed_password = Null.
     """
-    user = User()
+    user = User(
+        hashed_password="adsfbskjhdfbd"
+    )
+
     if user.hashed_password == None:
         raise HTTPException(
             status_code=403,

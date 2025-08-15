@@ -4,6 +4,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Path
 
 from app.api.deps import SessionDep, CurrentUser
+from app.core.log import logger
 from app.models.user import *
 
 sub_router = APIRouter(prefix="/settings", tags=["User Settings"])
@@ -14,7 +15,7 @@ async def get_generic_settings(
     current_user: CurrentUser
 ):
     """
-    Get generic settings
+    Get generic settings.
     """
     # TODO
     return
@@ -25,7 +26,7 @@ async def update_generic_settings(
     current_user: CurrentUser
 ):
     """
-    Update generic settings
+    Update generic settings.
     """
     # TODO
     return
@@ -77,7 +78,7 @@ async def start_password_reset(
     return
 
 @sub_router.patch("/security/password/reset")
-async def reset_password(
+async def reset_password_with_code(
     session: SessionDep,
     data: SettingsSecurityPwdReset
 ):

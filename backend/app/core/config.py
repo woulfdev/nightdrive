@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     )
 
     ENVIRONMENT: Literal["dev", "prod"] = "prod"
+    LOGGING_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
 
     LOCALES: str = "en"
     def LOCALES_AVAILABLE(self) -> list:
@@ -30,7 +31,7 @@ class Settings(BaseSettings):
 
     PROJECT_NAME: str = "NightDrive"
 
-    MESSAGE_OF_THE_DAY: str = None
+    MESSAGE_OF_THE_DAY: str = ""
 
     BASE_URL: str = ""
     API_V1_STR: str = "/api/v1"
@@ -52,7 +53,7 @@ class Settings(BaseSettings):
     PASSWORD_REQUIRE_NUMBERS: bool = True
     PASSWORD_REQUIRE_UPER_LOWERCASE: bool = True
     PASSWORD_REQUIRE_SYMBOLS: bool = True
-    PASSWORD_SYMBOLS_LIST: str = "~!@#$%^&*()_-+={[}]|\:;\"\'<,>.?/"
+    PASSWORD_SYMBOLS_LIST: str = "~!@#$%^&*()_-+={[}]|\\:;\"\'<,>.?/"
 
     ### PostgreSQL database settings    
     POSTGRES_SERVER: str

@@ -1,6 +1,7 @@
 from app.core.config import settings
 from sqlmodel import Session, create_engine, select
 
+from app.core.log import logger
 from app.models.user import User
 
 engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))

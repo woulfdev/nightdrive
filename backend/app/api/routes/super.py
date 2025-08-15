@@ -4,12 +4,16 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Path
 
 from app.api.deps import SessionDep, CurrentUser
+from app.core.log import logger
 from app.models.user import *
 
 sub_router = APIRouter(prefix="/super", tags=["Superuser"])
 
 @sub_router.post("/password/reset")
-async def reset_user_password():
+async def reset_user_password(
+    session: SessionDep,
+    current_user: CurrentUser
+):
     """
     Allows administrators to reset a users password.
     """

@@ -1,9 +1,11 @@
 import uuid
 from typing import Annotated
+from sqlmodel import select
 
 from fastapi import APIRouter, Depends, HTTPException, Path
 
 from app.api.deps import SessionDep, CurrentUser
+from app.core.log import logger
 from app.models.generic import *
 
 dev_router = APIRouter(prefix="/dev", tags=["Development"])
@@ -21,3 +23,13 @@ async def dev_mode_status():
         message="The server is in development mode! DO NOT USE IN PRODUCTION! Security might be lower or bypassed for testing purposes!"
     )
     return message
+
+@dev_router.get("/db/test")
+async def dev_db_test(
+    session: SessionDep
+):
+    """
+    Test DB connection
+    """
+    
+    return

@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Path, UploadFile
 from app.api.routes import super, usersettings
 
 from app.api.deps import SessionDep, CurrentUser
+from app.core.log import logger
 from app.models.user import *
 
 router = APIRouter(prefix="/users", tags=["Users"])
@@ -18,7 +19,7 @@ async def get_signup_code(
     current_user: CurrentUser
 ):
     """
-    Creates and returns a new signup code
+    Creates and returns a new signup code.
     """
     if not current_user.is_admin:
         raise HTTPException(
@@ -41,7 +42,9 @@ async def register_user(
     return
 
 @router.post("/signup")
-async def register_user_no_code():
+async def register_user_no_code(
+    session: SessionDep
+):
     """
     Register without a signup code.
     """
@@ -60,7 +63,7 @@ async def get_my_profile(
     current_user: CurrentUser
 ):
     """
-    Get your own profile
+    Get your own profile.
     """
     # TODO
     return
@@ -79,10 +82,11 @@ async def get_user_profile(
 
 @router.patch("/profile/update")
 async def update_profile(
-    session: SessionDep
+    session: SessionDep,
+    current_user: CurrentUser
 ):
     """
-    Update profile
+    Update profile.
     """
     # TODO
     return
